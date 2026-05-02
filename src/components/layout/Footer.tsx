@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-navy border-t border-white/10 pt-12 pb-6">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         <div>
-          <img src="/logo.svg" alt="Auto Sinaran" className="h-8 mb-4" />
+          <p className="font-heading text-2xl tracking-wide mb-4">AUTO <span className="text-amber-400">SINARAN</span></p>
           <p className="text-white/60 text-sm leading-relaxed">
             Bengkel servis pilihan untuk pemandu e-hailing. Perkhidmatan berkualiti, harga telus, masa dihormati.
           </p>

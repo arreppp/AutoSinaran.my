@@ -18,8 +18,8 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-navy/95 backdrop-blur border-b border-white/10">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <img src="/logo.svg" alt="Auto Sinaran" className="h-8 w-auto" />
+        <Link to="/" className="font-heading text-xl tracking-wide leading-none">
+          AUTO <span className="text-amber-400">SINARAN</span>
         </Link>
 
         {/* Desktop nav */}
