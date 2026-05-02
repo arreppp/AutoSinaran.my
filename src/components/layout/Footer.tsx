@@ -35,11 +35,11 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             <li className="flex items-start gap-2 text-white/60">
               <MapPin size={16} className="mt-0.5 shrink-0 text-amber-500" />
-              <span>No. 12, Jalan Industri 3, Taman Industri Selaman, 68000 Ampang, Selangor</span>
+              <span>No 81-83 Jalan LP1A/2 Taman Lestari Perdana, Seri Kembangan, Malaysia</span>
             </li>
             <li className="flex items-center gap-2 text-white/60">
               <Phone size={16} className="shrink-0 text-amber-500" />
-              <a href="https://wa.me/60123456789" target="_blank" rel="noreferrer" className="hover:text-amber-400">
+              <a href="https://wa.me/60103064816" target="_blank" rel="noreferrer" className="hover:text-amber-400">
                 +60 12-345 6789
               </a>
             </li>

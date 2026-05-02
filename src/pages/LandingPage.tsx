@@ -158,14 +158,14 @@ export default function LandingPage() {
                 <MapPin className="text-amber-400 shrink-0 mt-1" size={20} />
                 <div>
                   <div className="font-medium mb-1">Alamat</div>
-                  <div className="text-white/60 text-sm">No. 12, Jalan Industri 3, Taman Industri Selaman, 68000 Ampang, Selangor</div>
+                  <div className="text-white/60 text-sm">No 81-83 Jalan LP1A/2 Taman Lestari Perdana, Seri Kembangan, Malaysia</div>
                 </div>
               </div>
               <div className="flex gap-3 p-4 rounded-xl border border-white/10 bg-white/5">
                 <Phone className="text-amber-400 shrink-0 mt-1" size={20} />
                 <div>
                   <div className="font-medium mb-1">Telefon</div>
-                  <a href="tel:+60123456789" className="text-white/60 text-sm hover:text-amber-400">+60 12-345 6789</a>
+                  <a href="tel:+60389455143" className="text-white/60 text-sm hover:text-amber-400">+60 12-345 6789</a>
                 </div>
               </div>
               <div className="flex gap-3 p-4 rounded-xl border border-white/10 bg-white/5">
@@ -173,7 +173,7 @@ export default function LandingPage() {
                 <div>
                   <div className="font-medium mb-1">WhatsApp</div>
                   <a
-                    href="https://wa.me/60123456789?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20servis%20Auto%20Sinaran"
+                    href="https://wa.me/60103064816?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20servis%20Auto%20Sinaran"
                     target="_blank"
                     rel="noreferrer"
                     className="text-white/60 text-sm hover:text-amber-400"
