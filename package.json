@@ -1,0 +1,48 @@
+{
+  "name": "auto-sinaran",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "author": "arreppp",
+  "contributors": ["arreppp"],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "mock-server": "json-server --watch src/lib/db.json --port 3001"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.0",
+    "zustand": "^4.5.4",
+    "axios": "^1.7.2",
+    "react-hook-form": "^7.52.0",
+    "@hookform/resolvers": "^3.6.0",
+    "zod": "^3.23.8",
+    "react-day-picker": "^8.10.1",
+    "date-fns": "^3.6.0",
+    "@react-pdf/renderer": "^3.4.4",
+    "lucide-react": "^0.400.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.3.0",
+    "class-variance-authority": "^0.7.0",
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-select": "^2.1.1",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.5",
+    "tailwindcss": "^3.4.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "json-server": "^0.17.4"
+  }
+}
