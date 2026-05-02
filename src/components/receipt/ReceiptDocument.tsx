@@ -45,9 +45,9 @@ export default function ReceiptDocument({ booking }: Props) {
             <Text style={styles.logoSub}>BENGKEL SERVIS</Text>
           </View>
           <View>
-            <Text style={styles.address}>No. 12, Jalan Industri 3</Text>
-            <Text style={styles.address}>68000 Ampang, Selangor</Text>
-            <Text style={styles.address}>Tel: +60 12-345 6789</Text>
+            <Text style={styles.address}>No 81-83 Jalan LP1A/2 Taman Lestari Perdana</Text>
+            <Text style={styles.address}>Seri Kembangan, Malaysia</Text>
+            <Text style={styles.address}>Tel: +60 10-306 4816</Text>
           </View>
         </View>
 

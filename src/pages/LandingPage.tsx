@@ -165,7 +165,7 @@ export default function LandingPage() {
                 <Phone className="text-amber-400 shrink-0 mt-1" size={20} />
                 <div>
                   <div className="font-medium mb-1">Telefon</div>
-                  <a href="tel:+60389455143" className="text-white/60 text-sm hover:text-amber-400">+60 12-345 6789</a>
+                  <a href="tel:+60389455143" className="text-white/60 text-sm hover:text-amber-400">+60 10-306 4816</a>
                 </div>
               </div>
               <div className="flex gap-3 p-4 rounded-xl border border-white/10 bg-white/5">
