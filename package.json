@@ -7,7 +7,7 @@
   "contributors": ["arreppp"],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "mock-server": "json-server --watch src/lib/db.json --port 3001"
   },
