@@ -185,7 +185,7 @@ export default function LandingPage() {
             </div>
             <div className="rounded-xl overflow-hidden border border-white/10 h-64 md:h-auto">
               <iframe
-                src="https://maps.app.goo.gl/yVk9iNAK6cNh67qW8"
+                src="https://maps.google.com/maps?q=No+81-83+Jalan+LP1A%2F2+Taman+Lestari+Perdana+Seri+Kembangan&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '250px' }}

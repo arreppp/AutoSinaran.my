@@ -45,7 +45,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2 text-white/60">
               <Clock size={16} className="shrink-0 text-amber-500" />
-              <span>Isnin–Sabtu: 9:00 pagi – 6:00 petang</span>
+              <span>Isnin–Sabtu: 8:00 pagi – 5:30 petang</span>
             </li>
           </ul>
         </div>
