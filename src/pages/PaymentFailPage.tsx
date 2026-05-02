@@ -32,7 +32,7 @@ export default function PaymentFailPage() {
             <RefreshCw size={18} /> Cuba Semula
           </Button>
           <Button asChild variant="outline" size="lg" className="w-full flex items-center justify-center gap-2">
-            <a href={`https://wa.me/60123456789?text=${waText}`} target="_blank" rel="noreferrer">
+            <a href={`https://wa.me/60103064816?text=${waText}`} target="_blank" rel="noreferrer">
               <MessageCircle size={18} /> Hubungi via WhatsApp
             </a>
           </Button>
