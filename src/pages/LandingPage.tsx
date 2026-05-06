@@ -1,4 +1,5 @@
 import { CheckCircle2, Star, AlertCircle, Wrench, Clock, Share2, MessageCircle, MapPin, Phone } from 'lucide-react'
+import { useRef } from 'react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
@@ -27,9 +28,58 @@ const solutions = [
 ]
 
 const testimonials = [
-  { text: '2 jam siap, servis laju. Terus boleh jalan.', author: 'Driver Grab' },
-  { text: 'Harga sangat berpatutan', author: 'Driver AirAsia MOVE' },
+  { text: '2 jam siap, servis laju. Terus boleh jalan. Tak payah tunggu lama, terus boleh pickup penumpang.', author: 'Driver Grab', platform: 'Grab' },
+  { text: 'Harga sangat berpatutan, jimat berbanding bengkel lain. Sekarang saya datang sini je setiap servis.', author: 'Driver AirAsia MOVE', platform: 'AirAsia MOVE' },
+  { text: 'Staff mesra, kerja kemas. Kereta saya dah rasa macam baru balik dari servis. Sangat puas hati!', author: 'Driver inDrive', platform: 'inDrive' },
+  { text: 'Slot mudah, datang pagi terus masuk. Tak payah tunggu berlama-lama macam bengkel biasa.', author: 'Driver Grab', platform: 'Grab' },
+  { text: 'Minyak hitam tukar, filter tukar, semua dalam masa 2 jam. Harga pun tak tipu. Recommended!', author: 'Driver Maxim', platform: 'Maxim' },
+  { text: 'Dah 3 kali datang sini. Servis konsisten, harga sama je tak naik-naik. Best sangat!', author: 'Driver Grab', platform: 'Grab' },
+  { text: 'Lepas servis kat sini, kereta rasa lebih ringan dan jimat minyak sikit. Memang berbaloi!', author: 'Driver AirAsia MOVE', platform: 'AirAsia MOVE' },
 ]
+
+function TestimonialCarousel() {
+  const trackRef = useRef<HTMLDivElement>(null)
+
+  return (
+    <div className="overflow-hidden w-screen">
+      <style>{`
+        @keyframes marquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+          display: flex;
+          width: max-content;
+          animation: marquee 28s linear infinite;
+        }
+        .marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+      <div ref={trackRef} className="marquee-track">
+        {[...testimonials, ...testimonials].map((t, i) => (
+          <div
+            key={i}
+            className="w-72 shrink-0 mx-3 p-6 rounded-2xl border border-white/10 bg-white/5 flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex gap-0.5 mb-3">
+                {Array.from({ length: 5 }).map((_, s) => (
+                  <Star key={s} size={13} className="text-amber-400 fill-amber-400" />
+                ))}
+              </div>
+              <p className="text-white/80 text-sm leading-relaxed mb-4">"{t.text}"</p>
+            </div>
+            <div>
+              <p className="text-white/55 text-xs">— {t.author}</p>
+              <span className="text-amber-400/70 text-xs">{t.platform}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function LandingPage() {
   const handleShare = async () => {
@@ -51,7 +101,11 @@ export default function LandingPage() {
 
       {/* Hero */}
       <section className="pt-28 pb-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1515] via-[#0D1E1E] to-[#0A1515]" />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/herobackground.jpeg')" }}
+        />
+        <div className="absolute inset-0 bg-[#0A1515]/75" />
         <div
           className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10"
           style={{ background: 'radial-gradient(circle, #00A19C 0%, transparent 70%)' }}
@@ -135,8 +189,37 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Cara Tempah */}
+      <section id="how-it-works" className="py-14 px-4 bg-[#0D1E1E]">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">CARA TEMPAH</h2>
+          <p className="text-center text-white/50 mb-10 text-sm">Mudah, cepat & tanpa kelam-kabut</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              { step: '01', title: 'WhatsApp Kami', desc: 'Hubungi kami melalui WhatsApp untuk semak slot yang available.' },
+              { step: '02', title: 'Datang Ke Bengkel', desc: 'Tiba pada waktu yang ditetapkan. Tiada tunggu lama.' },
+              { step: '03', title: 'Kereta Siap & Jalan', desc: 'Servis selesai dalam 2–3 jam. Terima resit terus.' },
+            ].map(({ step, title, desc }) => (
+              <div key={step} className="relative flex flex-col items-center text-center p-6 rounded-xl border border-amber-500/20 bg-amber-500/5">
+                <span className="font-heading text-5xl text-amber-400/20 mb-3">{step}</span>
+                <h3 className="font-heading text-lg mb-2 text-amber-400">{title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-center mt-8">
+            <a href={WA_LINK} target="_blank" rel="noreferrer">
+              <Button size="lg" className="font-bold">
+                <MessageCircle size={18} className="mr-2" />
+                Mula Tempah Sekarang
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Pakej Popular */}
-      <section id="packages" className="py-14 px-4 bg-[#0D1E1E]">
+      <section id="packages" className="py-14 px-4 bg-[#0A1515]">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">PAKEJ POPULAR</h2>
           <p className="text-center text-white/50 mb-8 text-sm">Harga termasuk tukar minyak + servis asas</p>
@@ -178,24 +261,10 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-14 px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">APA KATA DRIVER</h2>
-          <p className="text-center text-white/50 mb-8 text-sm">Kepuasan pelanggan adalah keutamaan kami</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {testimonials.map(({ text, author }) => (
-              <div key={author} className="p-6 rounded-xl border border-white/10 bg-white/5">
-                <div className="flex gap-0.5 mb-3">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
-                  ))}
-                </div>
-                <p className="text-white/80 text-sm leading-relaxed mb-3">"{text}"</p>
-                <p className="text-white/40 text-xs">— {author}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section className="py-14">
+        <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2 px-4">APA KATA DRIVER</h2>
+        <p className="text-center text-white/50 mb-8 text-sm px-4">Kepuasan pelanggan adalah keutamaan kami</p>
+        <TestimonialCarousel />
       </section>
 
       {/* Final CTA */}
