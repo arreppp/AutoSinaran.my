@@ -124,7 +124,7 @@ export default function BookingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0A1628] text-white font-body">
+    <div className="min-h-screen bg-[#0A1515] text-white font-body">
       <Navbar />
       <main className="pt-24 pb-16 px-4">
         <div className="max-w-3xl mx-auto">
@@ -140,9 +140,9 @@ export default function BookingPage() {
                     <div className={`absolute top-4 left-1/2 w-full h-0.5 ${done ? 'bg-amber-500' : 'bg-white/10'}`} />
                   )}
                   <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-bold z-10 transition-colors ${
-                    done ? 'bg-amber-500 border-amber-500 text-[#0A1628]'
-                    : active ? 'border-amber-500 text-amber-500 bg-[#0A1628]'
-                    : 'border-white/20 text-white/30 bg-[#0A1628]'
+                    done ? 'bg-amber-500 border-amber-500 text-[#0A1515]'
+                    : active ? 'border-amber-500 text-amber-500 bg-[#0A1515]'
+                    : 'border-white/20 text-white/30 bg-[#0A1515]'
                   }`}>
                     {done ? '✓' : step}
                   </div>

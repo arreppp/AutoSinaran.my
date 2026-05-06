@@ -15,7 +15,7 @@ export default function PaymentFailPage() {
   const waText = encodeURIComponent('Salam, saya menghadapi masalah semasa pembayaran untuk tempahan Auto Sinaran. Boleh bantu?')
 
   return (
-    <div className="min-h-screen bg-[#0A1628] text-white flex flex-col items-center justify-center px-4">
+    <div className="min-h-screen bg-[#0A1515] text-white flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-md text-center">
         <XCircle size={64} className="text-red-400 mx-auto mb-4" />
         <h1 className="font-heading text-4xl mb-2 text-red-400">PEMBAYARAN GAGAL</h1>

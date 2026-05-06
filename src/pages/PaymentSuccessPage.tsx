@@ -26,7 +26,7 @@ export default function PaymentSuccessPage() {
 
   if (!paid || !booking) {
     return (
-      <div className="min-h-screen bg-[#0A1628] text-white flex items-center justify-center px-4">
+      <div className="min-h-screen bg-[#0A1515] text-white flex items-center justify-center px-4">
         <div className="text-center">
           <div className="text-amber-400 text-6xl mb-4">⚠</div>
           <h1 className="font-heading text-3xl mb-2">Maklumat Pembayaran Tidak Lengkap</h1>
@@ -40,7 +40,7 @@ export default function PaymentSuccessPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0A1628] text-white flex flex-col items-center justify-center px-4 py-16">
+    <div className="min-h-screen bg-[#0A1515] text-white flex flex-col items-center justify-center px-4 py-16">
       <div className="w-full max-w-md text-center">
         <CheckCircle2 size={64} className="text-green-400 mx-auto mb-4" />
         <h1 className="font-heading text-4xl mb-2 text-green-400">PEMBAYARAN BERJAYA!</h1>
