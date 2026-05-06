@@ -1,15 +1,25 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useAdminStore } from '@/store/adminStore'
-import { MOCK_BOOKINGS } from '@/lib/mockData'
+import { fetchBookings, patchBookingStatus } from '@/lib/strapi'
+import type { Booking } from '@/types'
 
 export function useBookings() {
-  const { bookings, setBookings, updateBookingStatus } = useAdminStore()
+  const { bookings, setBookings, updateBookingStatus: storeUpdate } = useAdminStore()
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    if (bookings.length === 0) {
-      setBookings(MOCK_BOOKINGS)
-    }
-  }, [bookings.length, setBookings])
+    setLoading(true)
+    fetchBookings()
+      .then(setBookings)
+      .catch(() => setError('Gagal memuatkan tempahan dari pelayan.'))
+      .finally(() => setLoading(false))
+  }, [setBookings])
 
-  return { bookings, updateBookingStatus }
+  async function updateBookingStatus(id: string, status: Booking['status']) {
+    await patchBookingStatus(id, status)
+    storeUpdate(id, status)
+  }
+
+  return { bookings, updateBookingStatus, loading, error }
 }
