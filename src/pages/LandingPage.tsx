@@ -46,15 +46,15 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0A1628] text-white font-body">
+    <div className="min-h-screen bg-[#0A1515] text-white font-body">
       <Navbar />
 
       {/* Hero */}
       <section className="pt-28 pb-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0d1f36] to-[#0A1628]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1515] via-[#0D1E1E] to-[#0A1515]" />
         <div
           className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, #F5A623 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, #00A19C 0%, transparent 70%)' }}
         />
         <div className="relative max-w-4xl mx-auto text-center">
           <Badge variant="outline" className="mb-4 text-amber-400 border-amber-400/40 text-xs uppercase tracking-widest">
@@ -99,7 +99,7 @@ export default function LandingPage() {
       </section>
 
       {/* Masalah Driver */}
-      <section className="py-14 px-4 bg-[#0d1f36]">
+      <section className="py-14 px-4 bg-[#0D1E1E]">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">MASALAH DRIVER E-HAILING</h2>
           <p className="text-center text-white/50 mb-8 text-sm">Kami faham cabaran anda setiap hari</p>
@@ -136,7 +136,7 @@ export default function LandingPage() {
       </section>
 
       {/* Pakej Popular */}
-      <section id="packages" className="py-14 px-4 bg-[#0d1f36]">
+      <section id="packages" className="py-14 px-4 bg-[#0D1E1E]">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">PAKEJ POPULAR</h2>
           <p className="text-center text-white/50 mb-8 text-sm">Harga termasuk tukar minyak + servis asas</p>
@@ -199,7 +199,7 @@ export default function LandingPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 px-4 bg-gradient-to-br from-amber-500/10 via-[#0d1f36] to-[#0A1628]">
+      <section className="py-16 px-4 bg-gradient-to-br from-amber-500/10 via-[#0D1E1E] to-[#0A1515]">
         <div className="max-w-xl mx-auto text-center">
           <h2 className="font-heading text-3xl sm:text-4xl mb-3">NAK JIMAT KOS SERVIS?</h2>
           <p className="text-white/60 text-sm mb-8">Klik WhatsApp sekarang dan dapatkan harga terbaik untuk driver e-hailing</p>
@@ -222,7 +222,7 @@ export default function LandingPage() {
       </section>
 
       {/* Facilities Gallery */}
-      <section className="py-14 px-4 bg-[#0d1f36]">
+      <section className="py-14 px-4 bg-[#0D1E1E]">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">KEMUDAHAN BENGKEL</h2>
           <p className="text-center text-white/50 mb-8 text-sm">Lihat sendiri kemudahan dan persekitaran bengkel kami</p>

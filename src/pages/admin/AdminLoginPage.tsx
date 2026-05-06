@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0A1628] text-white flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[#0A1515] text-white flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <img src="/logo.svg" alt="Auto Sinaran" className="h-10 mx-auto mb-4" />

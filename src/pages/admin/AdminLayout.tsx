@@ -21,10 +21,10 @@ export default function AdminLayout() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0A1628] text-white flex">
+    <div className="min-h-screen bg-[#0A1515] text-white flex">
       {/* Sidebar */}
       <aside className={cn(
-        'fixed inset-y-0 left-0 z-50 w-60 bg-[#060e1a] border-r border-white/10 flex flex-col transition-transform duration-200',
+        'fixed inset-y-0 left-0 z-50 w-60 bg-[#060f0f] border-r border-white/10 flex flex-col transition-transform duration-200',
         sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
       )}>
         <div className="px-5 py-4 border-b border-white/10 flex items-center gap-2">
@@ -66,7 +66,7 @@ export default function AdminLayout() {
 
       {/* Main */}
       <div className="flex-1 md:ml-60 flex flex-col">
-        <header className="sticky top-0 z-30 bg-[#0A1628] border-b border-white/10 px-4 h-14 flex items-center gap-3">
+        <header className="sticky top-0 z-30 bg-[#0A1515] border-b border-white/10 px-4 h-14 flex items-center gap-3">
           <button
             className="md:hidden text-white p-1"
             onClick={() => setSidebarOpen(!sidebarOpen)}

@@ -51,7 +51,7 @@ export default function DateTimePicker({ selectedDate, selectedTime, onDateChang
             row: 'flex w-full mt-2',
             cell: 'h-9 w-9 text-center text-sm p-0 relative',
             day: 'h-9 w-9 p-0 font-normal text-white rounded-md hover:bg-amber-500/20 hover:text-amber-300 transition-colors flex items-center justify-center',
-            day_selected: 'bg-amber-500 text-[#0A1628] font-bold hover:bg-amber-500 hover:text-[#0A1628]',
+            day_selected: 'bg-amber-500 text-white font-bold hover:bg-amber-500 hover:text-white',
             day_today: 'text-amber-400 font-bold',
             day_disabled: 'text-white/20 hover:bg-transparent hover:text-white/20 cursor-not-allowed',
             day_outside: 'text-white/20',
@@ -81,7 +81,7 @@ export default function DateTimePicker({ selectedDate, selectedTime, onDateChang
                       isBooked
                         ? 'border-red-900/50 bg-red-900/20 text-red-400/60 cursor-not-allowed line-through'
                         : isSelected
-                        ? 'border-amber-500 bg-amber-500 text-[#0A1628] font-bold'
+                        ? 'border-amber-500 bg-amber-500 text-white font-bold'
                         : 'border-white/20 bg-white/5 text-white hover:border-amber-500/50 hover:bg-amber-500/10'
                     )}
                   >
