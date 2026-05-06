@@ -223,7 +223,26 @@ export default function LandingPage() {
         </div>
       </section>
 
-<<<<<<< Updated upstream
+       {/* Facilities Gallery */}
+      <section className="py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="font-heading text-4xl text-center mb-2">KEMUDAHAN BENGKEL</h2>
+          <p className="text-center text-white/50 mb-10 text-sm">Lihat sendiri kemudahan dan persekitaran bengkel kami</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            {Array.from({ length: 8 }, (_, i) => (
+              <div key={i} className="rounded-xl overflow-hidden border border-white/10 aspect-square">
+                <img
+                  src={`/faci${i + 1}.jpeg`}
+                  alt={`Kemudahan bengkel ${i + 1}`}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact & Map */}
       <section id="contact" className="py-16 px-4">
         <div className="max-w-5xl mx-auto">
@@ -272,7 +291,7 @@ export default function LandingPage() {
                 title="Auto Sinaran Location"
               />
             </div>
-=======
+            
       {/* Facilities Gallery */}
       <section className="py-14 px-4 bg-[#0d1f36]">
         <div className="max-w-5xl mx-auto">
@@ -289,7 +308,6 @@ export default function LandingPage() {
                 />
               </div>
             ))}
->>>>>>> Stashed changes
           </div>
         </div>
       </section>
