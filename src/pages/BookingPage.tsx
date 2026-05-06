@@ -16,6 +16,7 @@ import { usePackages } from '@/hooks/usePackages'
 import { useBookingStore } from '@/store/bookingStore'
 import { useAdminStore } from '@/store/adminStore'
 import { createBillMock } from '@/lib/billplz'
+import { createBooking as strapiCreateBooking } from '@/lib/strapi'
 import { generateBookingId, toAmountCents } from '@/lib/utils'
 import type { Package } from '@/types'
 
@@ -34,8 +35,7 @@ export default function BookingPage() {
   const navigate = useNavigate()
   const { activePackages } = usePackages()
   const store = useBookingStore()
-  const addBooking = useAdminStore((s) => s.setBookings)
-  const existingBookings = useAdminStore((s) => s.bookings)
+  const { bookings: existingBookings, setBookings: addBooking } = useAdminStore()
   const [loading, setLoading] = useState(false)
 
   const {
@@ -92,8 +92,8 @@ export default function BookingPage() {
         reference_1: bookingId,
       })
 
-      // Save booking as pending
-      const newBooking = {
+      // Save booking to Strapi then local state
+      const bookingPayload = {
         id: bookingId,
         customerName: store.customerName,
         customerPhone: store.customerPhone,
@@ -108,8 +108,8 @@ export default function BookingPage() {
         status: 'pending_payment' as const,
         billplzBillId: bill.id,
         billplzUrl: bill.url,
-        createdAt: new Date().toISOString(),
       }
+      const newBooking = await strapiCreateBooking(bookingPayload)
       addBooking([...existingBookings, newBooking])
       store.setConfirmedBooking(newBooking)
 

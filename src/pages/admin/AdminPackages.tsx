@@ -2,14 +2,14 @@ import { useState } from 'react'
 import { useForm, useFieldArray } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { Plus, Pencil, Trash2, X } from 'lucide-react'
+import { Plus, Pencil, Trash2, X, Loader2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { Switch } from '@/components/ui/switch'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
-import { useAdminStore } from '@/store/adminStore'
+import { usePackages } from '@/hooks/usePackages'
 import { formatPrice, generateId } from '@/lib/utils'
 import type { Package } from '@/types'
 
@@ -27,11 +27,11 @@ type PackageForm = z.infer<typeof schema>
 interface FormDialogProps {
   pkg?: Package
   onClose: () => void
+  onSave: (data: Omit<Package, 'id' | 'createdAt'>, pkg?: Package) => Promise<void>
 }
 
-function PackageFormDialog({ pkg, onClose }: FormDialogProps) {
-  const addPackage = useAdminStore((s) => s.addPackage)
-  const updatePackage = useAdminStore((s) => s.updatePackage)
+function PackageFormDialog({ pkg, onClose, onSave }: FormDialogProps) {
+  const [saving, setSaving] = useState(false)
 
   const { register, handleSubmit, control, formState: { errors } } = useForm<PackageForm>({
     resolver: zodResolver(schema),
@@ -42,27 +42,20 @@ function PackageFormDialog({ pkg, onClose }: FormDialogProps) {
 
   const { fields, append, remove } = useFieldArray({ control, name: 'services' })
 
-  function onSubmit(data: PackageForm) {
-    const now = new Date().toISOString()
-    if (pkg) {
-      updatePackage({
-        ...pkg,
-        ...data,
-        services: data.services.map((s, i) => ({ id: pkg.services[i]?.id ?? generateId(), name: s.name })),
-      })
-    } else {
-      addPackage({
-        id: generateId(),
-        name: data.name,
-        description: data.description,
-        price: data.price,
-        services: data.services.map((s) => ({ id: generateId(), name: s.name })),
-        isActive: data.isActive,
-        isMostPopular: data.isMostPopular,
-        createdAt: now,
-      })
+  async function onSubmit(data: PackageForm) {
+    setSaving(true)
+    try {
+      const services = data.services.map((s, i) => ({
+        id: pkg?.services[i]?.id ?? generateId(),
+        name: s.name,
+      }))
+      await onSave({ ...data, services }, pkg)
+      onClose()
+    } catch {
+      alert('Gagal menyimpan pakej. Sila cuba lagi.')
+    } finally {
+      setSaving(false)
     }
-    onClose()
   }
 
   return (
@@ -114,18 +107,42 @@ function PackageFormDialog({ pkg, onClose }: FormDialogProps) {
       </div>
 
       <div className="flex gap-3 pt-2">
-        <Button type="button" variant="outline" onClick={onClose} className="flex-1">Batal</Button>
-        <Button type="submit" className="flex-1">{pkg ? 'Kemaskini' : 'Tambah Pakej'}</Button>
+        <Button type="button" variant="outline" onClick={onClose} className="flex-1" disabled={saving}>Batal</Button>
+        <Button type="submit" className="flex-1" disabled={saving}>
+          {saving ? <Loader2 size={14} className="animate-spin mr-1" /> : null}
+          {pkg ? 'Kemaskini' : 'Tambah Pakej'}
+        </Button>
       </div>
     </form>
   )
 }
 
 export default function AdminPackages() {
-  const { packages, deletePackage } = useAdminStore()
+  const { packages, addPackage, updatePackage, deletePackage, loading } = usePackages()
   const [editPkg, setEditPkg] = useState<Package | null>(null)
   const [showAdd, setShowAdd] = useState(false)
   const [deleteId, setDeleteId] = useState<string | null>(null)
+  const [deleting, setDeleting] = useState(false)
+
+  async function handleSave(data: Omit<Package, 'id' | 'createdAt'>, pkg?: Package) {
+    if (pkg) {
+      await updatePackage({ ...pkg, ...data })
+    } else {
+      await addPackage(data)
+    }
+  }
+
+  async function handleDelete(id: string) {
+    setDeleting(true)
+    try {
+      await deletePackage(id)
+      setDeleteId(null)
+    } catch {
+      alert('Gagal memadam pakej. Sila cuba lagi.')
+    } finally {
+      setDeleting(false)
+    }
+  }
 
   return (
     <div className="space-y-6">
@@ -140,10 +157,12 @@ export default function AdminPackages() {
           </DialogTrigger>
           <DialogContent>
             <DialogHeader><DialogTitle>Pakej Baru</DialogTitle></DialogHeader>
-            <PackageFormDialog onClose={() => setShowAdd(false)} />
+            <PackageFormDialog onClose={() => setShowAdd(false)} onSave={handleSave} />
           </DialogContent>
         </Dialog>
       </div>
+
+      {loading && <p className="text-white/40 text-sm">Memuatkan pakej...</p>}
 
       <div className="rounded-xl border border-white/10 bg-white/5 overflow-hidden">
         <div className="overflow-x-auto">
@@ -179,7 +198,13 @@ export default function AdminPackages() {
                         </DialogTrigger>
                         <DialogContent>
                           <DialogHeader><DialogTitle>Edit Pakej</DialogTitle></DialogHeader>
-                          {editPkg && <PackageFormDialog pkg={editPkg} onClose={() => setEditPkg(null)} />}
+                          {editPkg && (
+                            <PackageFormDialog
+                              pkg={editPkg}
+                              onClose={() => setEditPkg(null)}
+                              onSave={handleSave}
+                            />
+                          )}
                         </DialogContent>
                       </Dialog>
 
@@ -193,8 +218,11 @@ export default function AdminPackages() {
                           <DialogHeader><DialogTitle>Padam Pakej</DialogTitle></DialogHeader>
                           <p className="text-white/70 text-sm">Adakah anda pasti ingin memadam <strong>{pkg.name}</strong>? Tindakan ini tidak boleh dibatalkan.</p>
                           <div className="flex gap-3 mt-4">
-                            <Button variant="outline" onClick={() => setDeleteId(null)} className="flex-1">Batal</Button>
-                            <Button variant="destructive" onClick={() => { deletePackage(pkg.id); setDeleteId(null) }} className="flex-1">Padam</Button>
+                            <Button variant="outline" onClick={() => setDeleteId(null)} className="flex-1" disabled={deleting}>Batal</Button>
+                            <Button variant="destructive" onClick={() => handleDelete(pkg.id)} className="flex-1" disabled={deleting}>
+                              {deleting ? <Loader2 size={14} className="animate-spin mr-1" /> : null}
+                              Padam
+                            </Button>
                           </div>
                         </DialogContent>
                       </Dialog>
@@ -202,7 +230,7 @@ export default function AdminPackages() {
                   </td>
                 </tr>
               ))}
-              {packages.length === 0 && (
+              {!loading && packages.length === 0 && (
                 <tr><td colSpan={5} className="px-4 py-8 text-center text-white/30">Tiada pakej lagi</td></tr>
               )}
             </tbody>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getMockAvailability } from '@/lib/mockData'
+import { fetchAvailability } from '@/lib/strapi'
 import type { TimeSlot } from '@/types'
 
 export function useTimeSlots(date: string | null) {
@@ -12,13 +12,10 @@ export function useTimeSlots(date: string | null) {
       return
     }
     setLoading(true)
-    // Simulate async fetch
-    const timer = setTimeout(() => {
-      const availability = getMockAvailability(date)
-      setSlots(availability.slots)
-      setLoading(false)
-    }, 300)
-    return () => clearTimeout(timer)
+    fetchAvailability(date)
+      .then((availability) => setSlots(availability.slots))
+      .catch(() => setSlots([]))
+      .finally(() => setLoading(false))
   }, [date])
 
   return { slots, loading }
