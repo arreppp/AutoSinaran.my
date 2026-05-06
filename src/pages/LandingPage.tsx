@@ -1,14 +1,49 @@
-import { Link } from 'react-router-dom'
-import { CheckCircle2, Star, Zap, ShieldCheck, CalendarCheck, ChevronRight, MapPin, Phone, MessageCircle } from 'lucide-react'
+import { CheckCircle2, Star, AlertCircle, Wrench, Clock, Share2, MessageCircle } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { usePackages } from '@/hooks/usePackages'
-import { formatPrice } from '@/lib/utils'
+
+const WA_NUMBER = '60103064814'
+const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Salam%2C%20saya%20nak%20semak%20slot%20servis%20Auto%20Sinaran`
+
+const packages = [
+  { id: 1, name: 'MANNOL 5W30 4L', label: 'Paling Popular', price: 'RM199', popular: true },
+  { id: 2, name: 'PETRONAS 5W30 4L', label: null, price: 'RM215', popular: false },
+  { id: 3, name: 'MANNOL 5W30 3L', label: null, price: 'RM120', popular: false },
+  { id: 4, name: 'Overhaul Set', label: null, price: 'Dari RM450', popular: false },
+]
+
+const problems = [
+  { no: '01', text: 'Kerap rosak' },
+  { no: '02', text: 'Upah mahal' },
+  { no: '03', text: 'Hilang income' },
+]
+
+const solutions = [
+  { icon: Wrench, text: 'Alat ganti tulen, OEM & kualiti kerja' },
+  { icon: Star, text: 'Harga berpatutan' },
+  { icon: Clock, text: 'Servis pantas' },
+]
+
+const testimonials = [
+  { text: '2 jam siap, servis laju. Terus boleh jalan.', author: 'Driver Grab' },
+  { text: 'Harga sangat berpatutan', author: 'Driver AirAsia MOVE' },
+]
 
 export default function LandingPage() {
-  const { activePackages } = usePackages()
+  const handleShare = async () => {
+    if (navigator.share) {
+      await navigator.share({
+        title: 'Auto Sinaran – Bengkel E-Hailing',
+        text: 'Servis kereta pantas & harga berpatutan untuk driver e-hailing! Siap 2-3 jam.',
+        url: window.location.origin,
+      })
+    } else {
+      const shareUrl = `https://wa.me/?text=${encodeURIComponent(`Auto Sinaran – Bengkel pilihan driver e-hailing! Siap 2-3 jam, harga berpatutan. ${window.location.origin}`)}`
+      window.open(shareUrl, '_blank')
+    }
+  }
 
   return (
     <div className="min-h-screen bg-[#0A1628] text-white font-body">
@@ -35,118 +70,160 @@ export default function LandingPage() {
           <p className="text-white/60 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
             Servis profesional untuk pemandu Grab, AirAsia MOVE, inDrive & semua platform e-hailing. Tempah online, bayar mudah, terima resit terus.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button asChild size="lg" className="text-base font-bold">
-              <Link to="/book">
-                Tempah Sekarang <ChevronRight size={18} className="ml-1" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+            <a href={WA_LINK} target="_blank" rel="noreferrer">
+              <Button size="lg" className="text-base font-bold w-full sm:w-auto">
+                Semak Slot Harini
+              </Button>
+            </a>
+            <Button size="lg" variant="outline" asChild>
               <a href="#packages">Lihat Pakej</a>
             </Button>
           </div>
-          <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-white/50">
-            <span className="flex items-center gap-1"><CheckCircle2 size={14} className="text-amber-500" /> Harga Telus</span>
-            <span className="flex items-center gap-1"><CheckCircle2 size={14} className="text-amber-500" /> Tempahan Online 24/7</span>
-            <span className="flex items-center gap-1"><CheckCircle2 size={14} className="text-amber-500" /> Bayaran Selamat</span>
+
+          {/* WhatsApp + Urgency */}
+          <p className="text-white/60 text-sm mb-1">
+            Chat WhatsApp: <span className="text-amber-400 font-semibold">010-306 4814</span>
+          </p>
+          <p className="text-amber-400/80 text-xs italic mb-6">"Slot hari ini hampir penuh"</p>
+
+          {/* 3 Trust Points */}
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-white/50">
+            <span className="flex items-center gap-1"><CheckCircle2 size={14} className="text-amber-500" /> Siap 2-3 jam</span>
+            <span className="flex items-center gap-1"><CheckCircle2 size={14} className="text-amber-500" /> Special harga untuk e-hailing</span>
+            <span className="flex items-center gap-1"><CheckCircle2 size={14} className="text-amber-500" /> 1200+ kereta sudah servis</span>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-16 px-4 bg-[#0d1f36]">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-heading text-4xl text-center mb-2">KENAPA PILIH KAMI?</h2>
-          <p className="text-center text-white/50 mb-10 text-sm">Kami faham keperluan pemandu e-hailing</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { icon: ShieldCheck, title: 'Harga Telus', desc: 'Tiada caj tersembunyi. Harga tetap, pakej jelas.' },
-              { icon: Zap, title: 'Servis Pantas', desc: 'Siap dalam masa yang dijanjikan. Hormati masa anda.' },
-              { icon: Star, title: 'Pakar E-Hailing', desc: 'Kami faham keperluan kereta yang digunakan setiap hari.' },
-              { icon: CalendarCheck, title: 'Tempah Online', desc: 'Pilih masa, bayar, dan datang. Semudah itu.' },
-            ].map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="flex flex-col items-center text-center p-5 rounded-xl border border-white/10 hover:border-amber-500/30 transition-colors">
+      {/* Masalah Driver */}
+      <section className="py-14 px-4 bg-[#0d1f36]">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">MASALAH DRIVER E-HAILING</h2>
+          <p className="text-center text-white/50 mb-8 text-sm">Kami faham cabaran anda setiap hari</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {problems.map(({ no, text }) => (
+              <div key={no} className="flex items-center gap-4 p-5 rounded-xl border border-red-500/20 bg-red-500/5">
+                <span className="font-heading text-3xl text-red-400/40">{no}</span>
+                <div className="flex items-center gap-2">
+                  <AlertCircle size={16} className="text-red-400 shrink-0" />
+                  <span className="text-white/80 text-sm font-medium">{text}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Solusi */}
+      <section className="py-14 px-4">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">SOLUSI KAMI</h2>
+          <p className="text-center text-white/50 mb-8 text-sm">Satu tempat, semua selesai</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {solutions.map(({ icon: Icon, text }) => (
+              <div key={text} className="flex flex-col items-center text-center p-6 rounded-xl border border-amber-500/20 bg-amber-500/5">
                 <div className="w-12 h-12 rounded-full bg-amber-500/15 flex items-center justify-center mb-3">
                   <Icon size={22} className="text-amber-400" />
                 </div>
-                <h3 className="font-heading text-lg mb-1">{title}</h3>
-                <p className="text-white/50 text-xs leading-relaxed">{desc}</p>
+                <p className="text-white/80 text-sm font-medium leading-snug">{text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Packages */}
-      <section id="packages" className="py-16 px-4">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-heading text-4xl text-center mb-2">PAKEJ SERVIS</h2>
-          <p className="text-center text-white/50 mb-10 text-sm">Pilih pakej yang sesuai dengan keperluan anda</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {activePackages.map((pkg) => (
+      {/* Pakej Popular */}
+      <section id="packages" className="py-14 px-4 bg-[#0d1f36]">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">PAKEJ POPULAR</h2>
+          <p className="text-center text-white/50 mb-8 text-sm">Harga termasuk tukar minyak + servis asas</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {packages.map((pkg) => (
               <div
                 key={pkg.id}
-                className={`relative rounded-xl border p-6 flex flex-col transition-all hover:scale-[1.02] ${
-                  pkg.isMostPopular
-                    ? 'border-amber-500 bg-gradient-to-b from-amber-500/10 to-transparent'
+                className={`relative rounded-xl border p-5 flex items-center justify-between transition-all ${
+                  pkg.popular
+                    ? 'border-amber-500 bg-gradient-to-r from-amber-500/15 to-transparent'
                     : 'border-white/10 bg-white/5'
                 }`}
               >
-                {pkg.isMostPopular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                {pkg.popular && (
+                  <span className="absolute -top-3 left-4">
                     <Badge className="text-xs px-3">⭐ Paling Popular</Badge>
-                  </div>
+                  </span>
                 )}
-                <div className="mb-4">
-                  <h3 className="font-heading text-2xl">{pkg.name}</h3>
-                  {pkg.description && <p className="text-white/50 text-xs mt-1">{pkg.description}</p>}
+                <div>
+                  <h3 className="font-heading text-lg">{pkg.name}</h3>
+                  {pkg.label && <p className="text-amber-400/70 text-xs">{pkg.label}</p>}
                 </div>
-                <div className="mb-4">
-                  <span className="font-heading text-4xl text-amber-400">{formatPrice(pkg.price)}</span>
-                </div>
-                <ul className="space-y-2 mb-6 flex-1">
-                  {pkg.services.map((s) => (
-                    <li key={s.id} className="flex items-center gap-2 text-sm text-white/80">
-                      <CheckCircle2 size={14} className="text-amber-500 shrink-0" />
-                      {s.name}
-                    </li>
+                <span className="font-heading text-2xl text-amber-400 shrink-0 ml-4">{pkg.price}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Slot urgency */}
+          <p className="text-center text-amber-400 font-heading text-xl mt-8 tracking-wide">
+            "Hanya 20 SLOT sehari!"
+          </p>
+          <div className="flex justify-center mt-4">
+            <a href={WA_LINK} target="_blank" rel="noreferrer">
+              <Button size="lg" className="font-bold">
+                <MessageCircle size={18} className="mr-2" />
+                WhatsApp Sekarang
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-14 px-4">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">APA KATA DRIVER</h2>
+          <p className="text-center text-white/50 mb-8 text-sm">Kepuasan pelanggan adalah keutamaan kami</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {testimonials.map(({ text, author }) => (
+              <div key={author} className="p-6 rounded-xl border border-white/10 bg-white/5">
+                <div className="flex gap-0.5 mb-3">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
                   ))}
-                </ul>
-                <Button asChild variant={pkg.isMostPopular ? 'default' : 'outline'} className="w-full">
-                  <Link to="/book">Tempah Sekarang</Link>
-                </Button>
+                </div>
+                <p className="text-white/80 text-sm leading-relaxed mb-3">"{text}"</p>
+                <p className="text-white/40 text-xs">— {author}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section id="how-it-works" className="py-16 px-4 bg-[#0d1f36]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-heading text-4xl text-center mb-2">CARA TEMPAHAN</h2>
-          <p className="text-center text-white/50 mb-10 text-sm">3 langkah mudah, selesai dalam minit</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { step: '01', title: 'Pilih Pakej', desc: 'Semak senarai servis dan pilih pakej yang sesuai dengan keperluan anda.' },
-              { step: '02', title: 'Pilih Tarikh & Masa', desc: 'Pilih tarikh dan slot masa yang masih ada. Isikan maklumat kenderaan anda.' },
-              { step: '03', title: 'Bayar & Selesai', desc: 'Bayar secara online melalui BillPlz. Terima resit dan datang pada masa yang ditetapkan.' },
-            ].map(({ step, title, desc }) => (
-              <div key={step} className="flex flex-col items-center text-center p-6 rounded-xl border border-white/10">
-                <div className="font-heading text-5xl text-amber-400/30 mb-2">{step}</div>
-                <h3 className="font-heading text-xl mb-2">{title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <Button asChild size="lg">
-              <Link to="/book">Mulakan Tempahan <ChevronRight size={18} className="ml-1" /></Link>
-            </Button>
+      {/* Final CTA */}
+      <section className="py-16 px-4 bg-gradient-to-br from-amber-500/10 via-[#0d1f36] to-[#0A1628]">
+        <div className="max-w-xl mx-auto text-center">
+          <h2 className="font-heading text-3xl sm:text-4xl mb-3">NAK JIMAT KOS SERVIS?</h2>
+          <p className="text-white/60 text-sm mb-8">Klik WhatsApp sekarang dan dapatkan harga terbaik untuk driver e-hailing</p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <button
+              onClick={handleShare}
+              className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-white/20 text-white/80 hover:border-white/40 hover:text-white transition-colors text-sm font-medium"
+            >
+              <Share2 size={16} />
+              Kongsi Kepada Rakan
+            </button>
+            <a href={WA_LINK} target="_blank" rel="noreferrer">
+              <Button size="lg" className="font-bold w-full sm:w-auto">
+                <MessageCircle size={18} className="mr-2" />
+                WhatsApp Sekarang
+              </Button>
+            </a>
           </div>
         </div>
       </section>
 
+<<<<<<< Updated upstream
       {/* Contact & Map */}
       <section id="contact" className="py-16 px-4">
         <div className="max-w-5xl mx-auto">
@@ -195,6 +272,24 @@ export default function LandingPage() {
                 title="Auto Sinaran Location"
               />
             </div>
+=======
+      {/* Facilities Gallery */}
+      <section className="py-14 px-4 bg-[#0d1f36]">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">KEMUDAHAN BENGKEL</h2>
+          <p className="text-center text-white/50 mb-8 text-sm">Lihat sendiri kemudahan dan persekitaran bengkel kami</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            {Array.from({ length: 8 }, (_, i) => (
+              <div key={i} className="rounded-xl overflow-hidden border border-white/10 aspect-square">
+                <img
+                  src={`/faci${i + 1}.jpeg`}
+                  alt={`Kemudahan bengkel ${i + 1}`}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+>>>>>>> Stashed changes
           </div>
         </div>
       </section>
