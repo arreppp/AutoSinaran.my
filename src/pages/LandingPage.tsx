@@ -1,4 +1,4 @@
-import { CheckCircle2, Star, AlertCircle, Wrench, Clock, Share2, MessageCircle } from 'lucide-react'
+import { CheckCircle2, Star, AlertCircle, Wrench, Clock, Share2, MessageCircle, MapPin, Phone } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
@@ -68,7 +68,7 @@ export default function LandingPage() {
             JAGA KERETA, JAGA REZEKI
           </p>
           <p className="text-white/60 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
-            Servis profesional untuk pemandu Grab, AirAsia MOVE, inDrive & semua platform e-hailing. Tempah online, bayar mudah, terima resit terus.
+            Servis profesional untuk pemandu Grab, AirAsia MOVE, inDrive &amp; semua platform e-hailing. Tempah online, bayar mudah, terima resit terus.
           </p>
 
           {/* Buttons */}
@@ -163,8 +163,6 @@ export default function LandingPage() {
               </div>
             ))}
           </div>
-
-          {/* Slot urgency */}
           <p className="text-center text-amber-400 font-heading text-xl mt-8 tracking-wide">
             "Hanya 20 SLOT sehari!"
           </p>
@@ -223,11 +221,11 @@ export default function LandingPage() {
         </div>
       </section>
 
-       {/* Facilities Gallery */}
-      <section className="py-16 px-4">
+      {/* Facilities Gallery */}
+      <section className="py-14 px-4 bg-[#0d1f36]">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-heading text-4xl text-center mb-2">KEMUDAHAN BENGKEL</h2>
-          <p className="text-center text-white/50 mb-10 text-sm">Lihat sendiri kemudahan dan persekitaran bengkel kami</p>
+          <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">KEMUDAHAN BENGKEL</h2>
+          <p className="text-center text-white/50 mb-8 text-sm">Lihat sendiri kemudahan dan persekitaran bengkel kami</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {Array.from({ length: 8 }, (_, i) => (
               <div key={i} className="rounded-xl overflow-hidden border border-white/10 aspect-square">
@@ -246,7 +244,7 @@ export default function LandingPage() {
       {/* Contact & Map */}
       <section id="contact" className="py-16 px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-heading text-4xl text-center mb-2">LOKASI & HUBUNGI</h2>
+          <h2 className="font-heading text-4xl text-center mb-2">LOKASI &amp; HUBUNGI</h2>
           <p className="text-center text-white/50 mb-10 text-sm">Datang terus atau hubungi kami dahulu</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-4">
@@ -261,7 +259,7 @@ export default function LandingPage() {
                 <Phone className="text-amber-400 shrink-0 mt-1" size={20} />
                 <div>
                   <div className="font-medium mb-1">Telefon</div>
-                  <a href="tel:+60389455143" className="text-white/60 text-sm hover:text-amber-400">+60 10-306 4816</a>
+                  <a href="tel:+60103064814" className="text-white/60 text-sm hover:text-amber-400">010-306 4814</a>
                 </div>
               </div>
               <div className="flex gap-3 p-4 rounded-xl border border-white/10 bg-white/5">
@@ -269,7 +267,7 @@ export default function LandingPage() {
                 <div>
                   <div className="font-medium mb-1">WhatsApp</div>
                   <a
-                    href="https://wa.me/60103064816?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20servis%20Auto%20Sinaran"
+                    href={WA_LINK}
                     target="_blank"
                     rel="noreferrer"
                     className="text-white/60 text-sm hover:text-amber-400"
@@ -291,23 +289,6 @@ export default function LandingPage() {
                 title="Auto Sinaran Location"
               />
             </div>
-            
-      {/* Facilities Gallery */}
-      <section className="py-14 px-4 bg-[#0d1f36]">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">KEMUDAHAN BENGKEL</h2>
-          <p className="text-center text-white/50 mb-8 text-sm">Lihat sendiri kemudahan dan persekitaran bengkel kami</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {Array.from({ length: 8 }, (_, i) => (
-              <div key={i} className="rounded-xl overflow-hidden border border-white/10 aspect-square">
-                <img
-                  src={`/faci${i + 1}.jpeg`}
-                  alt={`Kemudahan bengkel ${i + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-            ))}
           </div>
         </div>
       </section>
