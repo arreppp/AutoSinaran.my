@@ -19,7 +19,7 @@ export default function Footer() {
               { href: '/', label: 'Laman Utama' },
               { href: '/book', label: 'Tempah Sekarang' },
               { href: '/#packages', label: 'Pakej Servis' },
-              { href: '/admin/login', label: 'Portal Admin' },
+              // { href: '/admin/login', label: 'Portal Admin' },
             ].map((l) => (
               <li key={l.href}>
                 <Link to={l.href} className="text-white/60 hover:text-amber-400 transition-colors">

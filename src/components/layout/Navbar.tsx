@@ -36,8 +36,8 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <Button asChild size="sm">
-            <Link to="/book">Tempah Sekarang</Link>
+          <Button size="sm" asChild>
+            <a href="/#packages">Tempah Sekarang</a>
           </Button>
         </div>
 
@@ -64,8 +64,8 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <Button asChild size="sm" className="w-full">
-            <Link to="/book" onClick={() => setOpen(false)}>Tempah Sekarang</Link>
+          <Button size="sm" className="w-full" asChild>
+            <a href="/#packages" onClick={() => setOpen(false)}>Tempah Sekarang</a>
           </Button>
         </div>
       )}
