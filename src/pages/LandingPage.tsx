@@ -105,7 +105,7 @@ export default function LandingPage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/herobackground.jpeg')" }}
         />
-        <div className="absolute inset-0 bg-[#0A1515]/75" />
+        <div className="absolute inset-0 bg-[#0A1515]/85" />
         <div
           className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10"
           style={{ background: 'radial-gradient(circle, #00A19C 0%, transparent 70%)' }}
