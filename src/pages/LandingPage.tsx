@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
-const WA_NUMBER = '60103064814'
+const WA_NUMBER = '60103064816'
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Salam%2C%20saya%20nak%20semak%20slot%20servis%20Auto%20Sinaran`
 
 const packages = [
@@ -328,7 +328,7 @@ export default function LandingPage() {
                 <Phone className="text-amber-400 shrink-0 mt-1" size={20} />
                 <div>
                   <div className="font-medium mb-1">Telefon</div>
-                  <a href="tel:+60103064814" className="text-white/60 text-sm hover:text-amber-400">010-306 4814</a>
+                  <a href="tel:+60103064816" className="text-white/60 text-sm hover:text-amber-400">010-306 4816</a>
                 </div>
               </div>
               <div className="flex gap-3 p-4 rounded-xl border border-white/10 bg-white/5">
