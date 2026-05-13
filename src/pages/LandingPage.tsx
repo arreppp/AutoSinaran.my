@@ -10,7 +10,7 @@ const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Salam%2C%20saya%20nak%20semak%2
 
 const packages = [
   { id: 1, name: 'MANNOL 5W30 4L', label: 'Paling Popular', price: 'RM199', popular: true },
-  { id: 2, name: 'PETRONAS 5W30 4L', label: null, price: 'RM215', popular: false },
+  { id: 2, name: 'PETRONAS 5W30 4L', label: null, price: 'RM245', popular: false },
   { id: 3, name: 'MANNOL 5W30 3L', label: null, price: 'RM120', popular: false },
   { id: 4, name: 'Overhaul Set', label: null, price: 'Dari RM450', popular: false },
 ]
@@ -122,7 +122,7 @@ export default function LandingPage() {
             JAGA KERETA, JAGA REZEKI
           </p>
           <p className="text-white/60 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
-            Servis profesional untuk pemandu Grab, AirAsia MOVE, inDrive &amp; semua platform e-hailing. Tempah online, bayar mudah, terima resit terus.
+            Servis profesional untuk pemandu Grab, AirAsia MOVE, inDrive &amp; semua platform e-hailing. Tempah, bayar, terima resit terus.
           </p>
 
           {/* Buttons */}
