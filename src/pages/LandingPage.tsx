@@ -139,7 +139,7 @@ export default function LandingPage() {
 
           {/* WhatsApp + Urgency */}
           <p className="text-white/60 text-sm mb-1">
-            Chat WhatsApp: <span className="text-amber-400 font-semibold">010-306 4814</span>
+            Chat WhatsApp: <span className="text-amber-400 font-semibold">010-306 4816</span>
           </p>
           <p className="text-amber-400/80 text-xs italic mb-6">"Slot hari ini hampir penuh"</p>
 
