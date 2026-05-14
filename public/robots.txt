@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /admin/login
+Disallow: /payment/success
+Disallow: /payment/fail
+
+Sitemap: https://autosinaran.my/sitemap.xml
