@@ -7,7 +7,7 @@ export const MOCK_PACKAGES: Package[] = [
     name: 'Pakej Petronas Syntium 3000 5w30',
     description: 'Oil filter, gasket & labour',
     price: 249,
-    image: '/packages/syntium3000.jpeg',
+    image: '/3000.jpeg',
     services: [
       { id: 's1', name: 'Petronas Syntium 3000 5w30' },
       { id: 's2', name: 'Oil Filter' },
@@ -23,7 +23,7 @@ export const MOCK_PACKAGES: Package[] = [
     name: 'Pakej Petronas Syntium 800 10w40',
     description: 'Oil filter, gasket & labour',
     price: 234,
-    image: '/packages/syntium800.jpeg',
+    image: '/800.jpeg',
     services: [
       { id: 's1', name: 'Petronas Syntium 800 10w40' },
       { id: 's2', name: 'Oil Filter' },

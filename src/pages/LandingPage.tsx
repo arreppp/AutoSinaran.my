@@ -9,8 +9,8 @@ const WA_NUMBER = '60103064816'
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Salam%2C%20saya%20nak%20semak%20slot%20servis%20Auto%20Sinaran`
 
 const packages = [
-  { id: 1, name: 'Pakej Petronas Syntium 3000 5w30', desc: 'Oil filter, gasket & labour', price: 'RM249', popular: true, image: '/packages/syntium3000.jpeg' },
-  { id: 2, name: 'Pakej Petronas Syntium 800 10w40', desc: 'Oil filter, gasket & labour', price: 'RM234', popular: false, image: '/packages/syntium800.jpeg' },
+  { id: 1, name: 'Pakej Petronas Syntium 3000 5w30', desc: 'Oil filter, gasket & labour', price: 'RM249', popular: true, image: '/3000.jpeg' },
+  { id: 2, name: 'Pakej Petronas Syntium 800 10w40', desc: 'Oil filter, gasket & labour', price: 'RM234', popular: false, image: '/800.jpeg' },
 ]
 
 const displayPackages = [
@@ -241,7 +241,7 @@ export default function LandingPage() {
                     <Badge className="text-xs px-3">⭐ Paling Popular</Badge>
                   </span>
                 )}
-                <div className="w-full h-40 rounded-lg overflow-hidden mb-4 bg-white/5 flex items-center justify-center">
+                <div className="w-full aspect-[3/4] rounded-lg overflow-hidden mb-4 bg-white/5 flex items-center justify-center">
                   <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" loading="lazy" />
                 </div>
                 <div className="flex items-end justify-between">

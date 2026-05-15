@@ -28,7 +28,7 @@ export default function PackageCard({ pkg, selected, onSelect }: Props) {
       )}
 
       {pkg.image && (
-        <div className="w-full h-32 rounded-lg overflow-hidden mb-3 bg-white/5">
+        <div className="w-full aspect-[3/4] rounded-lg overflow-hidden mb-3 bg-white/5">
           <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" />
         </div>
       )}
