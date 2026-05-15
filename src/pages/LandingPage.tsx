@@ -11,7 +11,7 @@ const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Salam%2C%20saya%20nak%20semak%2
 const packages = [
   { id: 1, name: 'Pakej Petronas Syntium 3000 5w30', desc: 'Oil filter, gasket & labour', price: 'RM249', popular: true, image: '/3000.jpeg' },
   { id: 2, name: 'Pakej Petronas Syntium 800 10w40', desc: 'Oil filter, gasket & labour', price: 'RM234', popular: false, image: '/800.jpeg' },
-  { id: 5, name: 'Pakej Servis Air-Cond', desc: 'Air filter (blow), vacuum, recharge, top-up gas & labour', price: 'RM59', popular: false, image: '/aircond.jpeg' },
+  { id: 5, name: 'Pakej Servis Air-Cond', desc: 'Air filter (blow), vacuum, recharge, top-up gas & labour', price: 'RM59', popular: false, image: '/aircond.jpeg', horizontal: true },
 ]
 
 const displayPackages = [
@@ -231,7 +231,7 @@ export default function LandingPage() {
             {packages.map((pkg) => (
               <div
                 key={pkg.id}
-                className={`relative rounded-xl border p-5 transition-all ${
+                className={`relative rounded-xl border p-5 transition-all ${pkg.horizontal ? 'sm:col-span-2' : ''} ${
                   pkg.popular
                     ? 'border-amber-500 bg-gradient-to-b from-amber-500/15 to-transparent'
                     : 'border-white/10 bg-white/5'
@@ -242,16 +242,31 @@ export default function LandingPage() {
                     <Badge className="text-xs px-3">⭐ Paling Popular</Badge>
                   </span>
                 )}
-                <div className="w-full aspect-[3/4] rounded-lg overflow-hidden mb-4 bg-white/5 flex items-center justify-center">
-                  <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" loading="lazy" />
-                </div>
-                <div className="flex items-end justify-between">
-                  <div>
-                    <h3 className="font-heading text-lg leading-snug">{pkg.name}</h3>
-                    <p className="text-white/50 text-xs mt-0.5">{pkg.desc}</p>
+                {pkg.horizontal ? (
+                  <div className="flex gap-4 items-center">
+                    <div className="w-1/2 shrink-0 rounded-lg overflow-hidden bg-white/5">
+                      <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" loading="lazy" />
+                    </div>
+                    <div className="flex flex-col justify-center gap-1">
+                      <h3 className="font-heading text-lg leading-snug">{pkg.name}</h3>
+                      <p className="text-white/50 text-xs">{pkg.desc}</p>
+                      <span className="font-heading text-2xl text-amber-400 mt-2">{pkg.price}</span>
+                    </div>
                   </div>
-                  <span className="font-heading text-2xl text-amber-400 shrink-0 ml-4">{pkg.price}</span>
-                </div>
+                ) : (
+                  <>
+                    <div className="w-full aspect-[3/4] rounded-lg overflow-hidden mb-4 bg-white/5 flex items-center justify-center">
+                      <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" loading="lazy" />
+                    </div>
+                    <div className="flex items-end justify-between">
+                      <div>
+                        <h3 className="font-heading text-lg leading-snug">{pkg.name}</h3>
+                        <p className="text-white/50 text-xs mt-0.5">{pkg.desc}</p>
+                      </div>
+                      <span className="font-heading text-2xl text-amber-400 shrink-0 ml-4">{pkg.price}</span>
+                    </div>
+                  </>
+                )}
               </div>
             ))}
           </div>
