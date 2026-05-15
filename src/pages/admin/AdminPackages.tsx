@@ -17,6 +17,7 @@ const schema = z.object({
   name: z.string().min(1, 'Nama pakej diperlukan'),
   description: z.string().optional(),
   price: z.coerce.number().min(1, 'Harga mesti lebih dari 0'),
+  image: z.string().optional(),
   services: z.array(z.object({ name: z.string().min(1, 'Nama servis diperlukan') })).min(1, 'Sekurang-kurangnya 1 servis'),
   isActive: z.boolean(),
   isMostPopular: z.boolean(),
@@ -36,8 +37,8 @@ function PackageFormDialog({ pkg, onClose }: FormDialogProps) {
   const { register, handleSubmit, control, formState: { errors } } = useForm<PackageForm>({
     resolver: zodResolver(schema),
     defaultValues: pkg
-      ? { name: pkg.name, description: pkg.description ?? '', price: pkg.price, services: pkg.services.map((s) => ({ name: s.name })), isActive: pkg.isActive, isMostPopular: pkg.isMostPopular ?? false }
-      : { name: '', description: '', price: 0, services: [{ name: '' }], isActive: true, isMostPopular: false },
+      ? { name: pkg.name, description: pkg.description ?? '', price: pkg.price, image: pkg.image ?? '', services: pkg.services.map((s) => ({ name: s.name })), isActive: pkg.isActive, isMostPopular: pkg.isMostPopular ?? false }
+      : { name: '', description: '', price: 0, image: '', services: [{ name: '' }], isActive: true, isMostPopular: false },
   })
 
   const { fields, append, remove } = useFieldArray({ control, name: 'services' })
@@ -48,6 +49,7 @@ function PackageFormDialog({ pkg, onClose }: FormDialogProps) {
       updatePackage({
         ...pkg,
         ...data,
+        image: data.image || undefined,
         services: data.services.map((s, i) => ({ id: pkg.services[i]?.id ?? generateId(), name: s.name })),
       })
     } else {
@@ -56,6 +58,7 @@ function PackageFormDialog({ pkg, onClose }: FormDialogProps) {
         name: data.name,
         description: data.description,
         price: data.price,
+        image: data.image || undefined,
         services: data.services.map((s) => ({ id: generateId(), name: s.name })),
         isActive: data.isActive,
         isMostPopular: data.isMostPopular,
@@ -80,6 +83,11 @@ function PackageFormDialog({ pkg, onClose }: FormDialogProps) {
         <Label>Harga (RM)</Label>
         <Input type="number" {...register('price')} placeholder="80" className="mt-1" />
         {errors.price && <p className="text-red-400 text-xs mt-1">{errors.price.message}</p>}
+      </div>
+      <div>
+        <Label>URL Imej (pilihan)</Label>
+        <Input {...register('image')} placeholder="/packages/nama-imej.jpeg" className="mt-1" />
+        <p className="text-white/30 text-xs mt-1">Letak imej dalam folder /public/packages/</p>
       </div>
 
       <div>

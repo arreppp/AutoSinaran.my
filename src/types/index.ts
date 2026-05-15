@@ -8,6 +8,7 @@ export interface Package {
   name: string;
   description?: string;
   price: number;
+  image?: string;
   services: ServiceItem[];
   isActive: boolean;
   isMostPopular?: boolean;

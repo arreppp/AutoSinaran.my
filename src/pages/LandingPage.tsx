@@ -9,10 +9,13 @@ const WA_NUMBER = '60103064816'
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Salam%2C%20saya%20nak%20semak%20slot%20servis%20Auto%20Sinaran`
 
 const packages = [
-  { id: 1, name: 'MANNOL 5W30 4L', label: 'Paling Popular', price: 'RM199', popular: true },
-  { id: 2, name: 'PETRONAS 5W30 4L', label: null, price: 'RM245', popular: false },
-  { id: 3, name: 'MANNOL 5W30 3L', label: null, price: 'RM120', popular: false },
-  { id: 4, name: 'Overhaul Set', label: null, price: 'Dari RM450', popular: false },
+  { id: 1, name: 'Pakej Petronas Syntium 3000 5w30', desc: 'Oil filter, gasket & labour', price: 'RM249', popular: true, image: '/3000.jpeg' },
+  { id: 2, name: 'Pakej Petronas Syntium 800 10w40', desc: 'Oil filter, gasket & labour', price: 'RM234', popular: false, image: '/800.jpeg' },
+]
+
+const displayPackages = [
+  { id: 3, name: 'Pakej Brake Pad', desc: 'Termasuk labour', price: 'Dari RM90' },
+  { id: 4, name: 'Pakej Top Overhaul', desc: 'Termasuk labour', price: 'Dari RM499' },
 ]
 
 const problems = [
@@ -227,9 +230,9 @@ export default function LandingPage() {
             {packages.map((pkg) => (
               <div
                 key={pkg.id}
-                className={`relative rounded-xl border p-5 flex items-center justify-between transition-all ${
+                className={`relative rounded-xl border p-5 transition-all ${
                   pkg.popular
-                    ? 'border-amber-500 bg-gradient-to-r from-amber-500/15 to-transparent'
+                    ? 'border-amber-500 bg-gradient-to-b from-amber-500/15 to-transparent'
                     : 'border-white/10 bg-white/5'
                 }`}
               >
@@ -238,14 +241,32 @@ export default function LandingPage() {
                     <Badge className="text-xs px-3">⭐ Paling Popular</Badge>
                   </span>
                 )}
-                <div>
-                  <h3 className="font-heading text-lg">{pkg.name}</h3>
-                  {pkg.label && <p className="text-amber-400/70 text-xs">{pkg.label}</p>}
+                <div className="w-full aspect-[3/4] rounded-lg overflow-hidden mb-4 bg-white/5 flex items-center justify-center">
+                  <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" loading="lazy" />
                 </div>
-                <span className="font-heading text-2xl text-amber-400 shrink-0 ml-4">{pkg.price}</span>
+                <div className="flex items-end justify-between">
+                  <div>
+                    <h3 className="font-heading text-lg leading-snug">{pkg.name}</h3>
+                    <p className="text-white/50 text-xs mt-0.5">{pkg.desc}</p>
+                  </div>
+                  <span className="font-heading text-2xl text-amber-400 shrink-0 ml-4">{pkg.price}</span>
+                </div>
               </div>
             ))}
           </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+            {displayPackages.map((pkg) => (
+              <div key={pkg.id} className="relative rounded-xl border border-white/10 bg-white/5 p-5 flex items-center justify-between">
+                <div>
+                  <h3 className="font-heading text-lg">{pkg.name}</h3>
+                  <p className="text-white/50 text-xs mt-0.5">{pkg.desc}</p>
+                </div>
+                <span className="font-heading text-xl text-amber-400 shrink-0 ml-4">{pkg.price}</span>
+              </div>
+            ))}
+          </div>
+
           <p className="text-center text-amber-400 font-heading text-xl mt-8 tracking-wide">
             "Hanya 20 SLOT sehari!"
           </p>
