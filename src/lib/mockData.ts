@@ -34,6 +34,23 @@ export const MOCK_PACKAGES: Package[] = [
     isMostPopular: false,
     createdAt: new Date().toISOString(),
   },
+  {
+    id: 'pkg-3',
+    name: 'Pakej Servis Air-Cond',
+    description: 'Air filter (blow), vacuum, recharge, top-up gas & labour',
+    price: 59,
+    image: '/aircond.jpeg',
+    services: [
+      { id: 's1', name: 'Air Filter (Blow)' },
+      { id: 's2', name: 'Vacuum' },
+      { id: 's3', name: 'Recharge' },
+      { id: 's4', name: 'Top-Up Gas' },
+      { id: 's5', name: 'Labour' },
+    ],
+    isActive: true,
+    isMostPopular: false,
+    createdAt: new Date().toISOString(),
+  },
 ]
 
 export const TIME_SLOTS = [
