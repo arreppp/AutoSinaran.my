@@ -27,6 +27,12 @@ export default function PackageCard({ pkg, selected, onSelect }: Props) {
         </div>
       )}
 
+      {pkg.image && (
+        <div className="w-full h-32 rounded-lg overflow-hidden mb-3 bg-white/5">
+          <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" />
+        </div>
+      )}
+
       <div className="flex justify-between items-start mb-3">
         <div>
           <h3 className="font-heading text-xl text-white">{pkg.name}</h3>
