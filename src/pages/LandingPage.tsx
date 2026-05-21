@@ -112,7 +112,7 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-[#0A1515]/85" />
         <div
           className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, #00A19C 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, #F59E0B 0%, transparent 70%)' }}
         />
         <div className="relative max-w-4xl mx-auto text-center">
           <Badge variant="outline" className="mb-4 text-amber-400 border-amber-400/40 text-xs uppercase tracking-widest">
