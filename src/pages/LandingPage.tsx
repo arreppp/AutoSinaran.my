@@ -107,9 +107,9 @@ export default function LandingPage() {
       <section className="pt-28 pb-20 px-4 relative overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/herobackground.jpeg')" }}
+          style={{ backgroundImage: "url('/faci7.jpeg')" }}
         />
-        <div className="absolute inset-0 bg-[#0A1515]/85" />
+        <div className="absolute inset-0 bg-[#0A1515]/60" />
         <div
           className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10"
           style={{ background: 'radial-gradient(circle, #00A19C 0%, transparent 70%)' }}
@@ -145,7 +145,9 @@ export default function LandingPage() {
           <p className="text-white/60 text-sm mb-1">
             Chat WhatsApp: <span className="text-amber-400 font-semibold">010-306 4816</span>
           </p>
-          <p className="text-amber-400/80 text-xs italic mb-6">"Slot hari ini hampir penuh"</p>
+          <p className="blink text-yellow-400 font-heading text-base sm:text-lg tracking-wide mb-6">
+            TAWARAN 5% DISKAUN BOOKING SLOT SECARA ONLINE
+          </p>
 
           {/* 3 Trust Points */}
           <div className="flex flex-wrap justify-center gap-6 text-sm text-white/50">
@@ -211,7 +213,12 @@ export default function LandingPage() {
               </div>
             ))}
           </div>
-          <div className="flex justify-center mt-8">
+          <p className="blink text-center text-yellow-400 font-heading text-lg sm:text-xl tracking-wide mt-8">
+            DAPATKAN TAWARAN 5% DISKAUN BOOKING SLOT SECARA ONLINE
+            <br />
+            010 306 4816
+          </p>
+          <div className="flex justify-center mt-4">
             <a href={WA_LINK} target="_blank" rel="noreferrer">
               <Button size="lg" className="font-bold">
                 <MessageCircle size={18} className="mr-2" />
@@ -283,8 +290,13 @@ export default function LandingPage() {
             ))}
           </div>
 
-          <p className="text-center text-amber-400 font-heading text-xl mt-8 tracking-wide">
-            "Hanya 20 SLOT sehari!"
+          <p className="blink text-center text-yellow-400 font-heading text-lg sm:text-xl tracking-wide mt-8">
+            DAPATKAN TAWARAN 5% DISKAUN BOOKING SLOT SECARA ONLINE
+            <br />
+            010 306 4816
+          </p>
+          <p className="text-center text-amber-400 font-heading text-xl mt-4 tracking-wide">
+            HANYA 20 SLOT SEHARI
           </p>
           <div className="flex justify-center mt-4">
             <a href={WA_LINK} target="_blank" rel="noreferrer">
