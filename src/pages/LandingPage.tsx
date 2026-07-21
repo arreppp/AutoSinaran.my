@@ -1,4 +1,4 @@
-import { CheckCircle2, Star, AlertCircle, Wrench, Clock, Share2, MessageCircle, MapPin, Phone } from 'lucide-react'
+import { CheckCircle2, Star, AlertCircle, Wrench, Clock, Share2, MessageCircle, MapPin, Phone, Award } from 'lucide-react'
 import { useRef } from 'react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -11,7 +11,8 @@ const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Salam%2C%20saya%20nak%20semak%2
 const packages = [
   { id: 1, name: 'Pakej Petronas Syntium 3000 5w30', desc: 'Oil filter, gasket & labour', price: 'RM199', popular: true, image: '/3000.jpeg' },
   { id: 2, name: 'Pakej Petronas Syntium 800 10w40', desc: 'Oil filter, gasket & labour', price: 'RM169', popular: false, image: '/800.jpeg' },
-  { id: 5, name: 'Pakej Servis Air-Cond', desc: 'Air filter (blow), vacuum, recharge, top-up gas & labour', price: 'RM59', popular: false, image: '/aircond.jpeg', horizontal: true },
+  { id: 6, name: 'Pakej Perodua 3.5L', desc: '0W20 oil filter, gasket & labour', price: 'RM120', popular: false, image: '/0w20.jpeg' },
+  { id: 5, name: 'Pakej Servis Air-Cond', desc: 'Air filter (blow), vacuum, recharge, top-up gas & labour', price: 'RM59', popular: false, image: '/aircond.jpeg' },
 ]
 
 const displayPackages = [
@@ -27,8 +28,8 @@ const problems = [
 
 const solutions = [
   { icon: Wrench, text: 'Alat ganti tulen, OEM & kualiti kerja' },
-  { icon: Star, text: 'Harga berpatutan' },
-  { icon: Clock, text: 'Servis pantas' },
+  { icon: Star, text: 'Harga berpatutan & transparent' },
+  { icon: Clock, text: 'Servis pantas oleh teknisyen bertauliah' },
 ]
 
 const testimonials = [
@@ -114,9 +115,18 @@ export default function LandingPage() {
           className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10"
           style={{ background: 'radial-gradient(circle, #00A19C 0%, transparent 70%)' }}
         />
+
+        {/* Product Of The Year emblem */}
+        <div className="absolute top-4 right-4 sm:top-8 sm:right-8 z-10 flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-amber-400 bg-[#0A1515]/80 text-center px-1">
+          <Award size={20} className="text-amber-400 mb-1" />
+          <span className="text-[8px] sm:text-[9px] font-heading leading-tight text-amber-400 tracking-wide">
+            PRODUCT<br />OF THE<br />YEAR
+          </span>
+        </div>
+
         <div className="relative max-w-4xl mx-auto text-center">
           <Badge variant="outline" className="mb-4 text-amber-400 border-amber-400/40 text-xs uppercase tracking-widest">
-            Bengkel Pilihan E-Hailing
+            Bengkel Pemilik Kenderaan &amp; E-Hailing
           </Badge>
           <h1 className="font-heading text-5xl sm:text-7xl lg:text-8xl mb-4 tracking-wide">
             AUTO{' '}
@@ -126,7 +136,7 @@ export default function LandingPage() {
             JAGA KERETA, JAGA REZEKI
           </p>
           <p className="text-white/60 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
-            Servis profesional untuk pemandu Grab, AirAsia MOVE, inDrive &amp; semua platform e-hailing. Tempah, bayar, terima resit terus.
+            Servis Professional untuk pemilik kenderaan &amp; pemandu semua platform e-hailing Malaysia.
           </p>
 
           {/* Buttons */}
@@ -141,11 +151,13 @@ export default function LandingPage() {
             </Button>
           </div>
 
-          {/* WhatsApp + Urgency */}
+          {/* WhatsApp + Promo */}
           <p className="text-white/60 text-sm mb-1">
             Chat WhatsApp: <span className="text-amber-400 font-semibold">010-306 4816</span>
           </p>
-          <p className="text-amber-400/80 text-xs italic mb-6">"Slot hari ini hampir penuh"</p>
+          <p className="blink text-amber-400 font-heading text-base sm:text-lg tracking-wide mb-6">
+            TAWARAN 5% DISKAUN BOOKING SLOT SECARA ON-LINE
+          </p>
 
           {/* 3 Trust Points */}
           <div className="flex flex-wrap justify-center gap-6 text-sm text-white/50">
@@ -159,7 +171,7 @@ export default function LandingPage() {
       {/* Masalah Driver */}
       <section className="py-14 px-4 bg-[#0D1E1E]">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">MASALAH DRIVER E-HAILING</h2>
+          <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2">MASALAH ANDA DAN KENDERAAN</h2>
           <p className="text-center text-white/50 mb-8 text-sm">Kami faham cabaran anda setiap hari</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {problems.map(({ no, text }) => (
@@ -211,7 +223,12 @@ export default function LandingPage() {
               </div>
             ))}
           </div>
-          <div className="flex justify-center mt-8">
+          <p className="blink text-center text-amber-400 font-heading text-lg sm:text-xl tracking-wide mt-8">
+            DAPATKAN TAWARAN 5% DISKAUN BOOKING SLOT SECARA ON-LINE
+            <br />
+            010 306 4816
+          </p>
+          <div className="flex justify-center mt-4">
             <a href={WA_LINK} target="_blank" rel="noreferrer">
               <Button size="lg" className="font-bold">
                 <MessageCircle size={18} className="mr-2" />
@@ -231,7 +248,7 @@ export default function LandingPage() {
             {packages.map((pkg) => (
               <div
                 key={pkg.id}
-                className={`relative rounded-xl border p-5 transition-all ${pkg.horizontal ? 'sm:col-span-2' : ''} ${
+                className={`relative rounded-xl border p-5 transition-all ${
                   pkg.popular
                     ? 'border-amber-500 bg-gradient-to-b from-amber-500/15 to-transparent'
                     : 'border-white/10 bg-white/5'
@@ -242,31 +259,16 @@ export default function LandingPage() {
                     <Badge className="text-xs px-3">⭐ Paling Popular</Badge>
                   </span>
                 )}
-                {pkg.horizontal ? (
-                  <div className="flex gap-4 items-center">
-                    <div className="w-1/2 shrink-0 rounded-lg overflow-hidden bg-white/5">
-                      <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" loading="lazy" />
-                    </div>
-                    <div className="flex flex-col justify-center gap-1">
-                      <h3 className="font-heading text-lg leading-snug">{pkg.name}</h3>
-                      <p className="text-white/50 text-xs">{pkg.desc}</p>
-                      <span className="font-heading text-2xl text-amber-400 mt-2">{pkg.price}</span>
-                    </div>
+                <div className="w-full aspect-[3/4] rounded-lg overflow-hidden mb-4 bg-white/5 flex items-center justify-center">
+                  <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" loading="lazy" />
+                </div>
+                <div className="flex items-end justify-between">
+                  <div>
+                    <h3 className="font-heading text-lg leading-snug">{pkg.name}</h3>
+                    <p className="text-white/50 text-xs mt-0.5">{pkg.desc}</p>
                   </div>
-                ) : (
-                  <>
-                    <div className="w-full aspect-[3/4] rounded-lg overflow-hidden mb-4 bg-white/5 flex items-center justify-center">
-                      <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" loading="lazy" />
-                    </div>
-                    <div className="flex items-end justify-between">
-                      <div>
-                        <h3 className="font-heading text-lg leading-snug">{pkg.name}</h3>
-                        <p className="text-white/50 text-xs mt-0.5">{pkg.desc}</p>
-                      </div>
-                      <span className="font-heading text-2xl text-amber-400 shrink-0 ml-4">{pkg.price}</span>
-                    </div>
-                  </>
-                )}
+                  <span className="font-heading text-2xl text-amber-400 shrink-0 ml-4">{pkg.price}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -283,8 +285,13 @@ export default function LandingPage() {
             ))}
           </div>
 
-          <p className="text-center text-amber-400 font-heading text-xl mt-8 tracking-wide">
-            "Hanya 20 SLOT sehari!"
+          <p className="blink text-center text-amber-400 font-heading text-lg sm:text-xl tracking-wide mt-8">
+            DAPATKAN TAWARAN 5% DISKAUN BOOKING SLOT SECARA ON-LINE
+            <br />
+            010 306 4816
+          </p>
+          <p className="text-center text-amber-400 font-heading text-xl mt-4 tracking-wide">
+            HANYA 20 SLOT SEHARI
           </p>
           <div className="flex justify-center mt-4">
             <a href={WA_LINK} target="_blank" rel="noreferrer">
@@ -299,7 +306,7 @@ export default function LandingPage() {
 
       {/* Testimonials */}
       <section className="py-14">
-        <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2 px-4">APA KATA DRIVER</h2>
+        <h2 className="font-heading text-3xl sm:text-4xl text-center mb-2 px-4">APA KATA PELANGGAN KAMI</h2>
         <p className="text-center text-white/50 mb-8 text-sm px-4">Kepuasan pelanggan adalah keutamaan kami</p>
         <TestimonialCarousel />
       </section>
@@ -308,7 +315,7 @@ export default function LandingPage() {
       <section className="py-16 px-4 bg-gradient-to-br from-amber-500/10 via-[#0D1E1E] to-[#0A1515]">
         <div className="max-w-xl mx-auto text-center">
           <h2 className="font-heading text-3xl sm:text-4xl mb-3">NAK JIMAT KOS SERVIS?</h2>
-          <p className="text-white/60 text-sm mb-8">Klik WhatsApp sekarang dan dapatkan harga terbaik untuk driver e-hailing</p>
+          <p className="text-white/60 text-sm mb-8">Klik WhatsApp sekarang dan claim 5% diskaun anda</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={handleShare}
