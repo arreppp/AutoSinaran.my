@@ -11,7 +11,7 @@ const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Salam%2C%20saya%20nak%20semak%2
 const packages = [
   { id: 1, name: 'Pakej Petronas Syntium 3000 5w30', desc: 'Oil filter, gasket & labour', price: 'RM199', popular: true, image: '/3000.jpeg' },
   { id: 2, name: 'Pakej Petronas Syntium 800 10w40', desc: 'Oil filter, gasket & labour', price: 'RM169', popular: false, image: '/800.jpeg' },
-  { id: 6, name: 'Pakej Perodua 3.5L', desc: '0W20 oil filter, gasket & labour', price: 'Tambah RM120', popular: false, image: '/0w20.jpeg' },
+  { id: 6, name: 'Pakej Perodua 3.5L', desc: '0W20 oil filter, gasket & labour', price: 'RM120', popular: false, image: '/0w20.jpeg' },
   { id: 5, name: 'Pakej Servis Air-Cond', desc: 'Air filter (blow), vacuum, recharge, top-up gas & labour', price: 'RM59', popular: false, image: '/aircond.jpeg' },
 ]
 
