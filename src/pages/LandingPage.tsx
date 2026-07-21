@@ -136,7 +136,7 @@ export default function LandingPage() {
             JAGA KERETA, JAGA REZEKI
           </p>
           <p className="text-white/60 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
-            Servis Professional untuk pemilik kenderaan &amp; pemandu semua platform e-hailing Malaysia.
+            Servis Professional untuk pemilik kenderaan &amp; pemandu semua platform <span className="whitespace-nowrap">e-hailing</span> Malaysia.
           </p>
 
           {/* Buttons */}
