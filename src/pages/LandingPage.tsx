@@ -252,11 +252,13 @@ export default function LandingPage() {
                   </span>
                 )}
                 {[1, 2, 6].includes(pkg.id) && (
-                  <img
-                    src="/emblem1.png"
-                    alt="Emblem"
-                    className="absolute top-2 right-2 w-12 h-12 sm:w-14 sm:h-14 object-contain z-10"
-                  />
+                  <span className="absolute top-2 right-2 z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white flex items-center justify-center shadow-md">
+                    <img
+                      src="/emblem1.png"
+                      alt="Emblem"
+                      className="w-14 h-14 sm:w-[4.5rem] sm:h-[4.5rem] object-contain"
+                    />
+                  </span>
                 )}
                 <div className="w-full aspect-[3/4] rounded-lg overflow-hidden mb-4 bg-white/5 flex items-center justify-center">
                   <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" loading="lazy" />
