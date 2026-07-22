@@ -251,6 +251,13 @@ export default function LandingPage() {
                     <Badge className="text-xs px-3">⭐ Paling Popular</Badge>
                   </span>
                 )}
+                {[1, 2, 6].includes(pkg.id) && (
+                  <img
+                    src="/emblem1.png"
+                    alt="Emblem"
+                    className="absolute top-2 right-2 w-12 h-12 sm:w-14 sm:h-14 object-contain z-10"
+                  />
+                )}
                 <div className="w-full aspect-[3/4] rounded-lg overflow-hidden mb-4 bg-white/5 flex items-center justify-center">
                   <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" loading="lazy" />
                 </div>
