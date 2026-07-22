@@ -1,4 +1,4 @@
-import { CheckCircle2, Star, AlertCircle, Wrench, Clock, Share2, MessageCircle, MapPin, Phone, Award } from 'lucide-react'
+import { CheckCircle2, Star, AlertCircle, Wrench, Clock, Share2, MessageCircle, MapPin, Phone } from 'lucide-react'
 import { useRef } from 'react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -115,14 +115,6 @@ export default function LandingPage() {
           className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10"
           style={{ background: 'radial-gradient(circle, #00A19C 0%, transparent 70%)' }}
         />
-
-        {/* Product Of The Year emblem */}
-        <div className="absolute top-4 right-4 sm:top-8 sm:right-8 z-10 flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-amber-400 bg-[#0A1515]/80 text-center px-1">
-          <Award size={20} className="text-amber-400 mb-1" />
-          <span className="text-[8px] sm:text-[9px] font-heading leading-tight text-amber-400 tracking-wide">
-            PRODUCT<br />OF THE<br />YEAR
-          </span>
-        </div>
 
         <div className="relative max-w-4xl mx-auto text-center">
           <Badge variant="outline" className="mb-4 text-amber-400 border-amber-400/40 text-xs uppercase tracking-widest">
