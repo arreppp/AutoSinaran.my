@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 import { Phone, MapPin, Clock } from 'lucide-react'
 
+const WA_NUMBER = '60103064816'
+const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Salam%2C%20saya%20nak%20semak%20slot%20servis%20Auto%20Sinaran`
+
 export default function Footer() {
   return (
     <footer className="bg-navy border-t border-white/10 pt-12 pb-6">
@@ -15,18 +18,21 @@ export default function Footer() {
         <div>
           <h4 className="font-heading text-lg text-amber-400 mb-4">PAUTAN PANTAS</h4>
           <ul className="space-y-2 text-sm">
-            {[
-              { href: '/', label: 'Laman Utama' },
-              { href: '/book', label: 'Tempah Sekarang' },
-              { href: '/#packages', label: 'Pakej Servis' },
-              // { href: '/admin/login', label: 'Portal Admin' },
-            ].map((l) => (
-              <li key={l.href}>
-                <Link to={l.href} className="text-white/60 hover:text-amber-400 transition-colors">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
+            <li>
+              <Link to="/" className="text-white/60 hover:text-amber-400 transition-colors">
+                Laman Utama
+              </Link>
+            </li>
+            <li>
+              <a href={WA_LINK} target="_blank" rel="noreferrer" className="text-white/60 hover:text-amber-400 transition-colors">
+                Tempah Sekarang
+              </a>
+            </li>
+            <li>
+              <a href="/#packages" className="text-white/60 hover:text-amber-400 transition-colors">
+                Pakej Servis
+              </a>
+            </li>
           </ul>
         </div>
 
