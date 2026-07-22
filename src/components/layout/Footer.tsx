@@ -19,7 +19,11 @@ export default function Footer() {
           <h4 className="font-heading text-lg text-amber-400 mb-4">PAUTAN PANTAS</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link to="/" className="text-white/60 hover:text-amber-400 transition-colors">
+              <Link
+                to="/"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="text-white/60 hover:text-amber-400 transition-colors"
+              >
                 Laman Utama
               </Link>
             </li>
