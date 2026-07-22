@@ -252,12 +252,12 @@ export default function LandingPage() {
                   </span>
                 )}
                 {[1, 2, 6].includes(pkg.id) && (
-                  <span className="absolute top-2 right-2 z-10 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-                    <span className="absolute inset-x-1 top-1/2 -translate-y-1/2 h-8 sm:h-9 rounded-sm bg-white shadow-md" />
+                  <span className="absolute top-2 right-2 z-10 w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center">
+                    <span className="absolute inset-x-1 top-1/2 -translate-y-1/2 h-6 rounded-sm bg-white shadow-md" />
                     <img
                       src="/emblem1.png"
                       alt="Emblem"
-                      className="relative w-20 h-20 sm:w-24 sm:h-24 object-contain"
+                      className="relative w-14 h-14 sm:w-16 sm:h-16 object-contain"
                     />
                   </span>
                 )}
