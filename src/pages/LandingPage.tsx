@@ -217,8 +217,8 @@ export default function LandingPage() {
           </div>
           <p className="blink text-center text-yellow-400 font-heading text-lg sm:text-xl tracking-wide mt-8">
             DAPATKAN TAWARAN 5% DISKAUN BOOKING SLOT SECARA ONLINE
-            <br />
-            010 306 4816
+            {/* <br />
+            010 306 4816 */}
           </p>
           <div className="flex justify-center mt-4">
             <a href={WA_LINK} target="_blank" rel="noreferrer">
@@ -289,8 +289,8 @@ export default function LandingPage() {
 
           <p className="blink text-center text-yellow-400 font-heading text-lg sm:text-xl tracking-wide mt-8">
             DAPATKAN TAWARAN 5% DISKAUN BOOKING SLOT SECARA ONLINE
-            <br />
-            010 306 4816
+            {/* <br />
+            010 306 4816 */}
           </p>
           <p className="text-center text-amber-400 font-heading text-xl mt-4 tracking-wide">
             HANYA 20 SLOT SEHARI
