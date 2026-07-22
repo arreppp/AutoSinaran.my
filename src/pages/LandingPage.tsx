@@ -1,4 +1,4 @@
-import { CheckCircle2, Star, AlertCircle, Wrench, Clock, Share2, MessageCircle, MapPin, Phone, Award } from 'lucide-react'
+import { CheckCircle2, Star, AlertCircle, Wrench, Clock, Share2, MessageCircle, MapPin, Phone } from 'lucide-react'
 import { useRef } from 'react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -116,14 +116,6 @@ export default function LandingPage() {
           style={{ background: 'radial-gradient(circle, #00A19C 0%, transparent 70%)' }}
         />
 
-        {/* Product Of The Year emblem */}
-        <div className="absolute top-4 right-4 sm:top-8 sm:right-8 z-10 flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-amber-400 bg-[#0A1515]/80 text-center px-1">
-          <Award size={20} className="text-amber-400 mb-1" />
-          <span className="text-[8px] sm:text-[9px] font-heading leading-tight text-amber-400 tracking-wide">
-            PRODUCT<br />OF THE<br />YEAR
-          </span>
-        </div>
-
         <div className="relative max-w-4xl mx-auto text-center">
           <Badge variant="outline" className="mb-4 text-amber-400 border-amber-400/40 text-xs uppercase tracking-widest">
             Bengkel Pemilik Kenderaan &amp; E-Hailing
@@ -225,8 +217,8 @@ export default function LandingPage() {
           </div>
           <p className="blink text-center text-yellow-400 font-heading text-lg sm:text-xl tracking-wide mt-8">
             DAPATKAN TAWARAN 5% DISKAUN BOOKING SLOT SECARA ONLINE
-            <br />
-            010 306 4816
+            {/* <br />
+            010 306 4816 */}
           </p>
           <div className="flex justify-center mt-4">
             <a href={WA_LINK} target="_blank" rel="noreferrer">
@@ -259,6 +251,16 @@ export default function LandingPage() {
                     <Badge className="text-xs px-3">⭐ Paling Popular</Badge>
                   </span>
                 )}
+                {[1, 2, 6].includes(pkg.id) && (
+                  <span className="absolute top-2 right-2 z-10 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
+                    <span className="absolute inset-x-2 top-1/2 -translate-y-1/2 h-6 sm:h-7 rounded-sm bg-white shadow-md" />
+                    <img
+                      src="/emblem1.png"
+                      alt="Emblem"
+                      className="relative w-20 h-20 sm:w-24 sm:h-24 object-contain"
+                    />
+                  </span>
+                )}
                 <div className="w-full aspect-[3/4] rounded-lg overflow-hidden mb-4 bg-white/5 flex items-center justify-center">
                   <img src={pkg.image} alt={pkg.name} className="w-full h-full object-contain" loading="lazy" />
                 </div>
@@ -287,8 +289,8 @@ export default function LandingPage() {
 
           <p className="blink text-center text-yellow-400 font-heading text-lg sm:text-xl tracking-wide mt-8">
             DAPATKAN TAWARAN 5% DISKAUN BOOKING SLOT SECARA ONLINE
-            <br />
-            010 306 4816
+            {/* <br />
+            010 306 4816 */}
           </p>
           <p className="text-center text-amber-400 font-heading text-xl mt-4 tracking-wide">
             HANYA 20 SLOT SEHARI
@@ -392,7 +394,7 @@ export default function LandingPage() {
             </div>
             <div className="rounded-xl overflow-hidden border border-white/10 h-64 md:h-auto">
               <iframe
-                src="https://maps.google.com/maps?q=No+81-83+Jalan+LP1A%2F2+Taman+Lestari+Perdana+Seri+Kembangan&output=embed"
+                src="https://maps.google.com/maps?q=2.9939148699874885,101.67296827116374&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '250px' }}
