@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
-const WA_NUMBER = '60103064816'
+const WA_NUMBER = '60175532487'
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Salam%2C%20saya%20nak%20semak%20slot%20servis%20Auto%20Sinaran`
 
 const packages = [
@@ -145,7 +145,7 @@ export default function LandingPage() {
 
           {/* WhatsApp + Promo */}
           <p className="text-white/60 text-sm mb-1">
-            Chat WhatsApp: <span className="text-amber-400 font-semibold">010-306 4816</span>
+            Chat WhatsApp: <span className="text-amber-400 font-semibold">017-553 2487</span>
           </p>
           <p className="blink text-yellow-400 font-heading text-base sm:text-lg tracking-wide mb-6">
             TAWARAN 5% DISKAUN BOOKING SLOT SECARA ONLINE
@@ -218,7 +218,7 @@ export default function LandingPage() {
           <p className="blink text-center text-yellow-400 font-heading text-lg sm:text-xl tracking-wide mt-8">
             DAPATKAN TAWARAN 5% DISKAUN BOOKING SLOT SECARA ONLINE
             {/* <br />
-            010 306 4816 */}
+            017-553 2487 */}
           </p>
           <div className="flex justify-center mt-4">
             <a href={WA_LINK} target="_blank" rel="noreferrer">
@@ -290,7 +290,7 @@ export default function LandingPage() {
           <p className="blink text-center text-yellow-400 font-heading text-lg sm:text-xl tracking-wide mt-8">
             DAPATKAN TAWARAN 5% DISKAUN BOOKING SLOT SECARA ONLINE
             {/* <br />
-            010 306 4816 */}
+            017-553 2487 */}
           </p>
           <p className="text-center text-amber-400 font-heading text-xl mt-4 tracking-wide">
             HANYA 20 SLOT SEHARI
@@ -374,7 +374,7 @@ export default function LandingPage() {
                 <Phone className="text-amber-400 shrink-0 mt-1" size={20} />
                 <div>
                   <div className="font-medium mb-1">Telefon</div>
-                  <a href="tel:+60103064816" className="text-white/60 text-sm hover:text-amber-400">010-306 4816</a>
+                  <a href="tel:+60175532487" className="text-white/60 text-sm hover:text-amber-400">017-553 2487</a>
                 </div>
               </div>
               <div className="flex gap-3 p-4 rounded-xl border border-white/10 bg-white/5">

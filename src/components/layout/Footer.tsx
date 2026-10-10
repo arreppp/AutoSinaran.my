@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Phone, MapPin, Clock } from 'lucide-react'
 
-const WA_NUMBER = '60103064816'
+const WA_NUMBER = '60175532487'
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Salam%2C%20saya%20nak%20semak%20slot%20servis%20Auto%20Sinaran`
 
 export default function Footer() {
@@ -49,8 +49,8 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2 text-white/60">
               <Phone size={16} className="shrink-0 text-amber-500" />
-              <a href="https://wa.me/60103064816" target="_blank" rel="noreferrer" className="hover:text-amber-400">
-                +60 10-306 4816
+              <a href="https://wa.me/60175532487" target="_blank" rel="noreferrer" className="hover:text-amber-400">
+                +6017-553 2487
               </a>
             </li>
             <li className="flex items-center gap-2 text-white/60">

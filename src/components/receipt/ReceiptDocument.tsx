@@ -47,7 +47,7 @@ export default function ReceiptDocument({ booking }: Props) {
           <View>
             <Text style={styles.address}>No 81-83 Jalan LP1A/2 Taman Lestari Perdana</Text>
             <Text style={styles.address}>Seri Kembangan, Malaysia</Text>
-            <Text style={styles.address}>Tel: +60 10-306 4816</Text>
+            <Text style={styles.address}>Tel: +6017-553 2487</Text>
           </View>
         </View>
 
